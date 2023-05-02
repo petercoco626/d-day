@@ -22,3 +22,32 @@ export const checkIsDateValidation = (
 ): boolean => {
   return startDate.getTime() <= endDateIn.getTime();
 };
+
+type dayType =
+  | '월요일'
+  | '화요일'
+  | '수요일'
+  | '목요일'
+  | '금요일'
+  | '토요일'
+  | '일요일';
+type translateDayType = {
+  [key in string]: dayType;
+};
+const translateDay: any = {
+  Mon: '월요일',
+  Tue: '화요일',
+  Wed: '수요일',
+  Thu: '목요일',
+  Fri: '금요일',
+  Sat: '토요일',
+  Sun: '일요일',
+};
+
+export const getDayOnDate = (selectedDate: Date): dayType => {
+  console.log(selectedDate.getDate(), selectedDate);
+  const dayOnKor = translateDay[selectedDate.getDate()];
+  console.log(dayOnKor);
+
+  return dayOnKor;
+};
