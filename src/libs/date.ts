@@ -35,19 +35,19 @@ type translateDayType = {
   [key in string]: dayType;
 };
 const translateDay: any = {
-  Mon: '월요일',
-  Tue: '화요일',
-  Wed: '수요일',
-  Thu: '목요일',
-  Fri: '금요일',
-  Sat: '토요일',
-  Sun: '일요일',
+  0: '일요일',
+  1: '월요일',
+  2: '화요일',
+  3: '수요일',
+  4: '목요일',
+  5: '금요일',
+  6: '토요일',
 };
 
 export const getDayOnDate = (selectedDate: Date): dayType => {
-  console.log(selectedDate.getDate(), selectedDate);
+  console.log(selectedDate.getDay(), selectedDate);
   const dayOnKor = translateDay[selectedDate.getDate()];
-  console.log(dayOnKor);
+  // console.log(dayOnKor);
 
   return dayOnKor;
 };
