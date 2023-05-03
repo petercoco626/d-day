@@ -1,19 +1,7 @@
 export function dDayDays(startDate: Date, endDate: Date): number {
   const diff: number = endDate.getTime() - startDate.getTime();
-  const diffDay: number = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const diffDay: number = Math.abs(diff / (1000 * 60 * 60 * 24));
   return diffDay;
-}
-
-export function dDayYearMonthDay(
-  startDate: Date,
-  endDate: Date
-): [number, number, number] {
-  const diff: number = endDate.getTime() - startDate.getTime();
-  const diffDay: number = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const diffYear = Math.floor(diffDay / 365);
-  const diffMonth = Math.floor((diffDay % 365) / 12);
-
-  return [diffYear, diffMonth, diffDay];
 }
 
 export const checkIsDateValidation = (
@@ -23,31 +11,44 @@ export const checkIsDateValidation = (
   return startDate.getTime() <= endDateIn.getTime();
 };
 
-type dayType =
-  | '월요일'
-  | '화요일'
-  | '수요일'
-  | '목요일'
-  | '금요일'
-  | '토요일'
-  | '일요일';
-type translateDayType = {
-  [key in string]: dayType;
-};
-const translateDay: any = {
-  0: '일요일',
-  1: '월요일',
-  2: '화요일',
-  3: '수요일',
-  4: '목요일',
-  5: '금요일',
-  6: '토요일',
-};
+export function getYearMonthDayDiff(
+  startDate: Date,
+  endDate: Date
+): [number, number, number] {
+  const startYear = startDate.getFullYear();
+  const startMonth = startDate.getMonth();
+  const endYear = endDate.getFullYear();
+  const endMonth = endDate.getMonth();
 
-export const getDayOnDate = (selectedDate: Date): dayType => {
-  console.log(selectedDate.getDay(), selectedDate);
-  const dayOnKor = translateDay[selectedDate.getDate()];
-  // console.log(dayOnKor);
+  let yearDiff = endYear - startYear;
+  let monthDiff = endMonth - startMonth;
+  let dayDiff = endDate.getDate() - startDate.getDate();
 
-  return dayOnKor;
-};
+  if (dayDiff < 0) {
+    monthDiff--;
+    const daysInEndMonth = new Date(endYear, endMonth + 1, 0).getDate();
+    dayDiff += daysInEndMonth;
+  }
+
+  if (monthDiff < 0) {
+    yearDiff--;
+    monthDiff += 12;
+  }
+
+  // check for leap years
+  let leapYears = 0;
+  for (let year = startYear; year <= endYear; year++) {
+    if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+      leapYears++;
+    }
+  }
+
+  // add leap years to year difference if end date is after February 29
+  if (endMonth > 1 || (endMonth === 1 && endDate.getDate() >= 29)) {
+    leapYears--;
+  }
+
+  yearDiff -= leapYears;
+
+  return [yearDiff, monthDiff, dayDiff];
+}

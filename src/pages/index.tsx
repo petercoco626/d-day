@@ -1,8 +1,7 @@
 import {
   checkIsDateValidation,
   dDayDays,
-  dDayYearMonthDay,
-  getDayOnDate,
+  getYearMonthDayDiff,
 } from '@/libs/date';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -47,7 +46,7 @@ export default function Home() {
     }
 
     const diffDays = dDayDays(startDateOnResult, endDateOnResult);
-    const diffYearMonthDay = dDayYearMonthDay(
+    const diffYearMonthDay = getYearMonthDayDiff(
       startDateOnResult,
       endDateOnResult
     );
@@ -57,8 +56,6 @@ export default function Home() {
     });
   };
   const inValid = () => {};
-
-  // console.log(getDayOnDate(new Date(startDate)));
 
   return (
     <main className="w-screen h-screen">
