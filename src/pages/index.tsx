@@ -120,9 +120,9 @@ export default function Home() {
                 </button>
               </form>
               {result && (
-                <div className="flex flex-col gap-2 w-full h-[80px] rounded-xl bg-[#E29578] p-2 box-border justify-center items-center">
+                <div className="flex flex-col gap-2 w-full px-4 py-3 rounded-xl bg-[#E29578] p-2 box-border justify-center items-center">
                   <div>{result.resultD}</div>
-                  <div>{result.resultYMD}</div>
+                  {/* <div>{result.resultYMD}</div> */}
                 </div>
               )}
               <div className=" text-center font-normal text-sm text-[#666666] w-full h-[75px] p-2 box-border rounded-xl bg-[#D8DFE1] flex items-center justify-center">
