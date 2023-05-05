@@ -110,6 +110,11 @@ export default function HeadMeta({
         name="naver-site-verification"
         content="312312"
       /> */}
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558716632638870"
+        crossOrigin="anonymous"
+      ></script>
       <meta name="theme-color" content="#ffffff"></meta>
     </Head>
   );
