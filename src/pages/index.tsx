@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import IWarningCircle from '@/assets/icon/WarningCircle.svg';
 import HeadMeta from '@/components/meta/headMeta';
+import * as gtag from '@/libs/gtag';
 
 type InputForm = {
   startDate: Date;
@@ -54,6 +55,12 @@ export default function Home() {
     setResult({
       resultYMD: `${diffYearMonthDay[0]}년 ${diffYearMonthDay[1]}개월 ${diffYearMonthDay[2]}일 남았습니다.`,
       resultD: `${diffDays}일 남았습니다.`,
+    });
+    gtag.event({
+      action: 'click_main_calcualte_button',
+      category: 'calculate',
+      label: 'calculate',
+      value: null,
     });
   };
   const inValid = () => {};
