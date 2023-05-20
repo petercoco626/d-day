@@ -1,4 +1,5 @@
 import DateCalculator from '@/components/dateCalculator';
+import Description from '@/components/description';
 import Holidays from '@/components/holidays';
 import HeadMeta from '@/components/meta/headMeta';
 import { HOLIDAYS } from '@/constants/date';
@@ -24,20 +25,20 @@ export default function Home({ holidays }: Props) {
         <div className="w-full bg-gray_01 h-[calc(100%-60px)]">
           <div className="w-[248px] h-full m-auto flex flex-col justify-between">
             <div className="w-full flex flex-col gap-8 mt-2 mb-4 ">
-              <div className=" text-center font-normal text-sm text-text_gray_02 w-full p-2 box-border rounded-xl bg-gray_02 flex items-center justify-center break-keep">
+              <Description>
                 D데이(D-Day)는 전략적 공격 또는 작전 개시 시간을 나타내는 데
                 자주 사용되는 미국의 군사 용어이다.
                 <br /> 어두의 ‘D’의 유래에 대해서는 여러 설이 있지만, 막연한
                 날짜를 나타내는 Day의 약자라는 해석이 있다.
-              </div>
+              </Description>
               <DateCalculator />
-              <div className=" text-center font-normal text-sm text-text_gray_02 w-full p-2 box-border rounded-xl bg-gray_02 flex items-center justify-center break-keep">
+              <Description>
                 기본으로 오늘 날짜로 설정되어 있습니다.
                 <br />
                 오늘을 포함해서 계산해 줍니다.
                 <br />
                 예시) 오늘~내일을 계산하면 D-1입니다.
-              </div>
+              </Description>
               <Holidays holidays={holidays} />
             </div>
             <div className="text-text_gray_01 font-normal text-xs w-full p-2 box-border text-center">
