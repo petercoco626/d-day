@@ -72,7 +72,7 @@ const DateCalculator = () => {
               {...register('startDate', {
                 required: '날짜를 입력해 주세요',
               })}
-              data-placeholder="날짜를 입력해 주세요."
+              data-placeholder="2023.05.01"
               aria-required="true"
               required
               className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full  w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
@@ -93,7 +93,7 @@ const DateCalculator = () => {
               {...register('endDate', {
                 required: '날짜를 입력해 주세요',
               })}
-              data-placeholder="날짜를 입력해 주세요."
+              data-placeholder="2023.05.30"
               aria-required="true"
               required
               className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
@@ -108,7 +108,7 @@ const DateCalculator = () => {
           )}
         </div>
         <button className="rounded-xl w-full h-[44px] flex items-center justify-center bg-green_02 text-base font-bold text-text_white">
-          며칠 남았나요?
+          계산하기
         </button>
       </form>
       {result && (
