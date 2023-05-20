@@ -24,9 +24,9 @@ const Holidays = ({ holidays }: Props) => {
             <div>설명 : {days.description}</div>
             <div>
               D-day(오늘 기준) :{' '}
-              <span className="text-salmon_02 font-semibold">
-                {days.d_day}일
-              </span>
+              <div className="text-salmon_02 font-semibold">
+                {days.d_day}일 {days.d_day > 0 ? '남았습니다' : '지났습니다'}.
+              </div>
             </div>
           </div>
         ))}
