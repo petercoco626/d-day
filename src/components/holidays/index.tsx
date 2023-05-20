@@ -1,6 +1,4 @@
-import { HOLIDAYS } from '@/constants/date';
 import { HolidaysType } from '@/types/date';
-import { GetServerSidePropsContext } from 'next';
 
 type Props = {
   holidays: HolidaysType[];
