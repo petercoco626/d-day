@@ -1,17 +1,16 @@
 import {
-  checkIsDateValidation,
   dDayDays,
+  generateDateFormatYYYYMMDD,
   getYearMonthDayDiff,
 } from '@/libs/date';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import IWarningCircle from '@/assets/icon/WarningCircle.svg';
-import HeadMeta from '@/components/meta/headMeta';
 import * as gtag from '@/libs/gtag';
 
 type InputForm = {
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 };
 
 type resultForm = {
@@ -28,7 +27,7 @@ const DateCalculator = () => {
     formState: { errors, isValid },
   } = useForm<InputForm>({
     defaultValues: {
-      startDate: new Date(),
+      startDate: generateDateFormatYYYYMMDD(new Date()),
     },
   });
 
@@ -40,13 +39,6 @@ const DateCalculator = () => {
   const valid = () => {
     const startDateOnResult = new Date(startDate);
     const endDateOnResult = new Date(endDate);
-
-    // if (!checkIsDateValidation(startDateOnResult, endDateOnResult)) {
-    //   alert('시작 날짜보다 미래의 날짜를 넣어주세요.');
-
-    //   return;
-    // }
-
     const diffDays = dDayDays(startDateOnResult, endDateOnResult);
     const diffYearMonthDay = getYearMonthDayDiff(
       startDateOnResult,
@@ -79,8 +71,11 @@ const DateCalculator = () => {
               {...register('startDate', {
                 required: '날짜를 입력해 주세요',
               })}
-              placeholder="날짜를 입력해 주세요."
-              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
+              data-placeholder="날짜를 입력해 주세요."
+              defaultValue={generateDateFormatYYYYMMDD(new Date())}
+              aria-required="true"
+              required
+              className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full  w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
             />
             에서
           </div>
@@ -98,8 +93,10 @@ const DateCalculator = () => {
               {...register('endDate', {
                 required: '날짜를 입력해 주세요',
               })}
-              placeholder="날짜를 입력해 주세요."
-              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
+              data-placeholder="날짜를 입력해 주세요."
+              aria-required="true"
+              required
+              className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full placeholder:text-text_gray_01 w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
             />
             까지
           </div>
