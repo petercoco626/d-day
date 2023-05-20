@@ -53,7 +53,6 @@ const DateCalculator = () => {
       endDateOnResult
     );
 
-    console.log(diffDays);
     setResult({
       resultYMD: `${diffYearMonthDay[0]}년 ${diffYearMonthDay[1]}개월 ${diffYearMonthDay[2]}일 남았습니다.`,
       resultD: `${diffDays}일 남았습니다.`,
@@ -81,12 +80,12 @@ const DateCalculator = () => {
                 required: '날짜를 입력해 주세요',
               })}
               placeholder="날짜를 입력해 주세요."
-              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-[#D8DFE1] border-solid px-[14px] py-[24px] box-border"
+              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
             />
             에서
           </div>
           {errors.startDate?.message && (
-            <div className="text-[#E29578] font-normal text-xs ml-4 flex gap-1">
+            <div className="text-salmon_02 font-normal text-xs ml-4 flex gap-1">
               <IWarningCircle />
               {errors.startDate?.message}
             </div>
@@ -100,23 +99,23 @@ const DateCalculator = () => {
                 required: '날짜를 입력해 주세요',
               })}
               placeholder="날짜를 입력해 주세요."
-              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-[#D8DFE1] border-solid px-[14px] py-[24px] box-border"
+              className="w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
             />
             까지
           </div>
           {errors.endDate?.message && (
-            <div className="text-[#E29578] font-normal text-xs ml-4 flex gap-1">
+            <div className="text-salmon_02 font-normal text-xs ml-4 flex gap-1">
               <IWarningCircle />
               {errors.endDate?.message}
             </div>
           )}
         </div>
-        <button className="rounded-xl w-full h-[44px] flex items-center justify-center bg-[#006D77] text-base font-bold text-[#ffffff]">
+        <button className="rounded-xl w-full h-[44px] flex items-center justify-center bg-green_02 text-base font-bold text-text_white">
           며칠 남았나요?
         </button>
       </form>
       {result && (
-        <div className="flex flex-col gap-2 w-full px-4 py-3 rounded-xl bg-[#E29578] p-2 box-border justify-center items-center">
+        <div className="flex flex-col gap-2 w-full px-4 py-3 rounded-xl bg-salmon_02 p-2 box-border justify-center items-center">
           <div>{result.resultD}</div>
           {/* <div>{result.resultYMD}</div> */}
         </div>
