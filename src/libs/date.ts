@@ -1,8 +1,19 @@
+export const currentYear = () => new Date().getFullYear();
+
 export function dDayDays(startDate: Date, endDate: Date): number {
   const diff: number = endDate.getTime() - startDate.getTime();
   const diffDay: number = diff / (1000 * 60 * 60 * 24);
   return diffDay;
 }
+
+export const generateDateFormatYYYYMMDD = (selectedDate: Date): string => {
+  const date = new Date(selectedDate);
+  const year = date.getFullYear();
+  const month = ('0' + (1 + date.getMonth())).slice(-2);
+  const day = ('0' + date.getDate()).slice(-2);
+
+  return year + '-' + month + '-' + day;
+};
 
 export const checkIsDateValidation = (
   startDate: Date,
