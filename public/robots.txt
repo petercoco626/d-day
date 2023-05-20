@@ -1,0 +1,5 @@
+DaumWebMasterTool:6456af9b5ce6d3f806e85957393132ad82cc81f3ae0959acf9e3e34636164c1f:W1or6bbQIqgEbFF+LZYGAQ==
+
+User-agent: *
+Allow: /
+
