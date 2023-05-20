@@ -106,10 +106,11 @@ export default function HeadMeta({
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" /> */}
       {/* NAVER SEO */}
-      {/* <meta
+      <meta
         name="naver-site-verification"
-        content="312312"
-      /> */}
+        content="a2991169cde6ad6c2d353014fded364a1fd6c243"
+      />
+      {/* google ads */}
       <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3558716632638870"
