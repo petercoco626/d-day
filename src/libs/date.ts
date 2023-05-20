@@ -1,6 +1,6 @@
 export function dDayDays(startDate: Date, endDate: Date): number {
   const diff: number = endDate.getTime() - startDate.getTime();
-  const diffDay: number = Math.abs(diff / (1000 * 60 * 60 * 24));
+  const diffDay: number = diff / (1000 * 60 * 60 * 24);
   return diffDay;
 }
 
