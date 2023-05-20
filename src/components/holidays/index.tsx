@@ -8,7 +8,7 @@ type Props = {
 
 const Holidays = ({ holidays }: Props) => {
   return (
-    <div className="w-full p-2 rounded-xl">
+    <div className="w-full rounded-xl">
       <div className="text-lg font-bold break-keep mb-2">
         올해의 기념일 계산기
       </div>
