@@ -28,6 +28,7 @@ const DateCalculator = () => {
   } = useForm<InputForm>({
     defaultValues: {
       startDate: generateDateFormatYYYYMMDD(new Date()),
+      endDate: '',
     },
   });
 
@@ -47,7 +48,7 @@ const DateCalculator = () => {
 
     setResult({
       resultYMD: `${diffYearMonthDay[0]}년 ${diffYearMonthDay[1]}개월 ${diffYearMonthDay[2]}일 남았습니다.`,
-      resultD: `${diffDays}일 남았습니다.`,
+      resultD: `${diffDays}일 ${diffDays >= 0 ? '남았습니다.' : '지났습니다.'}`,
     });
     gtag.event({
       action: 'click_main_calcualte_button',
@@ -72,7 +73,6 @@ const DateCalculator = () => {
                 required: '날짜를 입력해 주세요',
               })}
               data-placeholder="날짜를 입력해 주세요."
-              defaultValue={generateDateFormatYYYYMMDD(new Date())}
               aria-required="true"
               required
               className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full  w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
@@ -96,7 +96,7 @@ const DateCalculator = () => {
               data-placeholder="날짜를 입력해 주세요."
               aria-required="true"
               required
-              className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full placeholder:text-text_gray_01 w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
+              className="before:text-text_gray_01 focus:before:hidden valid:before:hidden before:content-[attr(data-placeholder)] before:w-full w-[200px] h-[48px] rounded-xl bg-white border-[1px] border-gray_02 border-solid px-[14px] py-[24px] box-border"
             />
             까지
           </div>
