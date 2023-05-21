@@ -13,10 +13,10 @@ export default function Home({ holidays }: Props) {
   return (
     <>
       <HeadMeta
-        title="d-day 날짜 계산기"
-        description="두개의 날짜를 선택하여 며칠이 남았는지 계산해보세요 !"
-        url="https://d-day-lyart.vercel.app"
-        keywords="d-day, 날짜 계산"
+        title="D-day 날짜 계산기"
+        description="정말 쉬운 D-day 계산 ! 두개의 날짜를 선택하여 며칠이 남았는지 계산해보세요 ! 월별 기념일도 확인해보세요 !"
+        url="https://d-day.zizzi.world"
+        keywords="D-day, 날짜 계산, 기념일 계산, 커플 기념일"
       />
       <main className="w-screen">
         <div className="w-full h-[60px] bg-green_01 font-bold text-[22px] text-text_black flex items-center justify-center">

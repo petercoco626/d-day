@@ -16,17 +16,14 @@ const Holidays = ({ holidays }: Props) => {
             key={days.name}
             className="font-normal mb-2 bg-gray_02 p-2 rounded-xl break-keep"
           >
-            <div>날짜 : {days.date}</div>
-            <div>
-              기념일 :{' '}
-              <span className="text-text_black font-bold">{days.name}</span>
-            </div>
-            <div>설명 : {days.description}</div>
-            <div>
+            <div className="text-text_black font-bold text-lg">{days.name}</div>
+            <div className="text-sm text-text_gray_02">{days.description}</div>
+            <div>{days.date}</div>
+            <div className="text-sm">
               D-day(오늘 기준) :{' '}
-              <div className="text-salmon_02 font-semibold">
+              <span className="text-salmon_02 font-semibold">
                 {days.d_day}일 {days.d_day > 0 ? '남았습니다' : '지났습니다'}.
-              </div>
+              </span>
             </div>
           </div>
         ))}
