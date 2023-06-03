@@ -4,6 +4,7 @@ import Holidays from '@/components/holidays';
 import HeadMeta from '@/components/meta/headMeta';
 import { HOLIDAYS } from '@/constants/date';
 import { HolidaysType } from '@/types/date';
+import Link from 'next/link';
 
 type Props = {
   holidays: HolidaysType[];
@@ -40,6 +41,13 @@ export default function Home({ holidays }: Props) {
                 예시) 오늘~내일을 계산하면 D-1입니다.
               </Description>
               <Holidays holidays={holidays} />
+              <Link
+                href={'/age'}
+                className="rounded-xl w-full h-[44px] flex items-center justify-center box-border p-2 text-center break-keep bg-salmon_02 text-sm font-bold text-text_white"
+              >
+                만 나이가 궁금하다면? <br />
+                👉 만 나이 계산하러가기 !
+              </Link>
             </div>
             <div className="text-text_gray_01 font-normal text-xs w-full p-2 box-border text-center">
               ⓒ 2023. zizzi project all rights reserved.
