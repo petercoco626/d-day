@@ -27,7 +27,7 @@ const AgePage = () => {
               href={'/'}
               className="rounded-xl w-full h-[44px] flex items-center justify-center box-border p-2 text-center break-keep bg-salmon_02 text-sm font-bold text-text_white"
             >
-              d-day를 계산하고 싶으시다면? <br />
+              d-day를 계산하고 싶다면? <br />
               👉 d-day 계산하러 가기 !
             </Link>
             <div className="absolute bottom-1 text-text_gray_01 font-normal text-xs w-full p-2 box-border text-center">
