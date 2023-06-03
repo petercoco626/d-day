@@ -63,3 +63,20 @@ export function getYearMonthDayDiff(
 
   return [yearDiff, monthDiff, dayDiff];
 }
+
+export const getCurrentAge = (birthDate: Date): number => {
+  const currentDate: Date = new Date();
+
+  let age: number = currentDate.getFullYear() - birthDate.getFullYear();
+
+  // Check if the birth date hasn't occurred yet this year
+  if (
+    currentDate.getMonth() < birthDate.getMonth() ||
+    (currentDate.getMonth() === birthDate.getMonth() &&
+      currentDate.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+};
